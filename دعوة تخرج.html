@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دعوة تخرج</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5ece4;--card:#fff;--soft:#faf4ee;--ink:#3a1018;--wine:#6b1624;--wine2:#4d0f19;--gold:#c9a45c;--rose:#b98068;--line:#ecdcc8;--muted:#7a6a68;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241216}}
+:root[data-theme="dark"]{--bg:#241216}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',Tahoma,sans-serif;min-height:100vh}
+.hidden{display:none!important}
+/* envelope */
+#intro{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center}
+.tag{background:linear-gradient(135deg,var(--wine),var(--wine2));color:#fff;padding:10px 26px;border-radius:30px;font-size:15px}
+.script{font-family:'Great Vibes',cursive;font-size:clamp(44px,13vw,64px);color:var(--wine);direction:ltr;margin:0;line-height:1.1}
+.env{position:relative;width:min(92vw,420px);aspect-ratio:1.5;background:#f8f0ea;border-radius:12px;box-shadow:0 16px 40px rgba(107,22,36,.18);overflow:hidden;cursor:pointer;border:0;padding:0}
+.flap{position:absolute;inset:0 0 40% 0;background:#fffdfb;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s}
+.seal{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:26%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8a2335,var(--wine2));border:3px solid var(--rose);display:grid;place-items:center;color:#f6dfa4;font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(18px,6vw,28px);direction:ltr;transition:opacity .4s}
+.env.open .flap{transform:rotateX(180deg)}
+.env.open .seal{opacity:0}
+.openbtn{background:#fff;color:var(--wine);border:1px solid var(--line);border-radius:30px;padding:12px 26px;font:500 16px 'Tajawal';cursor:pointer;box-shadow:0 6px 18px rgba(107,22,36,.12)}
+/* invitation */
+#inv{max-width:520px;margin:0 auto;padding:20px 14px 40px;animation:rise .9s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.frame{background:var(--card);border-radius:36px;padding:10px;border:1px solid var(--line);color:var(--ink)}
+.inner{border:1px solid var(--line);border-radius:28px;padding:26px 18px 28px;text-align:center}
+.bism{font-family:'Amiri',serif;font-size:30px;color:var(--wine);margin:0 0 10px}
+.arch{width:78%;max-width:300px;aspect-ratio:3/3.6;margin:22px auto;border-radius:999px 999px 24px 24px;border:5px solid var(--gold);background:linear-gradient(#fff,#f6e9e4);display:grid;place-items:center;overflow:hidden}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch span{font-family:'Great Vibes',cursive;font-size:84px;color:var(--wine);direction:ltr}
+.lead{font-family:'Amiri',serif;font-size:19px;color:var(--wine);margin:0}
+.what{font-family:'Amiri',serif;font-size:26px;margin:6px 0}
+.name{font-family:'Amiri',serif;font-weight:700;font-size:38px;color:var(--wine2);margin:0;line-height:1.3}
+.en{font-family:'Playfair Display',serif;font-style:italic;color:var(--rose);letter-spacing:.04em;margin:4px 0 16px;direction:ltr}
+.pill{border:1px solid var(--line);background:#f8f1f3;border-radius:26px;padding:12px 14px;font-size:15px;color:var(--wine2)}
+.info{display:flex;gap:14px;align-items:center;text-align:right;background:var(--soft);border:1px solid var(--line);border-radius:26px;padding:16px;margin-top:14px}
+.ico{flex:none;width:56px;height:56px;border-radius:16px;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
+.ico svg{width:28px;height:28px;stroke:var(--wine);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.info small{color:var(--rose);font-size:14px;display:block}
+.info b{font-family:'Amiri',serif;font-size:22px;display:block}
+.info em{font-style:normal;color:var(--muted);font-size:14px}
+.btn{display:block;width:100%;margin-top:12px;border:0;border-radius:30px;padding:15px;background:linear-gradient(135deg,var(--wine),var(--wine2));color:#fff;font:500 16px 'Tajawal';text-align:center;text-decoration:none;cursor:pointer}
+.btn.alt{background:#fff;color:var(--wine);border:1px solid #d9bfc6}
+.count{margin-top:18px;background:linear-gradient(#faf4ee,#f3e9df);border:1px solid var(--gold);border-radius:26px;padding:16px 10px}
+.count p{margin:0 0 12px;color:var(--wine);font-family:'Amiri',serif;font-size:20px}
+.cells{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cells div{background:#fff;border-radius:16px;padding:12px 0;border:1px solid var(--line)}
+.cells b{display:block;font-family:'Playfair Display',serif;font-size:28px;color:var(--wine);direction:ltr}
+.cells span{font-size:13px;color:var(--muted)}
+.row{display:flex;gap:10px;margin-top:6px}
+.row .btn{margin-top:12px}
+hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+.verse{font-family:'Amiri',serif;font-size:26px;line-height:2;color:var(--wine2);margin:0}
+.src{color:var(--rose);font-size:14px}
+.sign{font-family:'Great Vibes',cursive;font-size:46px;color:var(--wine);direction:ltr;margin:6px 0 0}
+.cls{font-family:'Playfair Display',serif;letter-spacing:.18em;font-size:11px;color:var(--muted);direction:ltr}
+.bf{position:fixed;z-index:40;font-size:26px;pointer-events:none;animation:fly var(--d,16s) ease-in-out infinite}
+.bf i{display:block;font-style:normal;animation:flap .3s ease-in-out infinite alternate}
+@keyframes flap{from{transform:scaleX(1)}to{transform:scaleX(.2)}}
+@keyframes fly{0%{transform:translate(0,0) rotate(0)}20%{transform:translate(var(--x1),var(--y1)) rotate(20deg)}45%{transform:translate(var(--x2),var(--y2)) rotate(-15deg)}70%{transform:translate(var(--x3),var(--y3)) rotate(25deg)}100%{transform:translate(0,0) rotate(0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.capi{font-size:68px;animation:toss 3s ease-in-out infinite;filter:drop-shadow(0 10px 8px rgba(0,0,0,.2))}
+@keyframes toss{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-30px) rotate(16deg)}}
+.seal{animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,164,92,.7)}70%{box-shadow:0 0 0 22px rgba(201,164,92,0)}100%{box-shadow:0 0 0 0 rgba(201,164,92,0)}}
+.env{animation:sway 4s ease-in-out infinite}
+.env.open{animation:none}
+@keyframes sway{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+.name{background:linear-gradient(90deg,#4d0f19 20%,#c9a45c 50%,#4d0f19 80%);background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:-250% center}}
+.arch{box-shadow:0 0 0 0 rgba(201,164,92,.5);animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 0 14px rgba(201,164,92,0),0 12px 30px rgba(201,164,92,.35)}}
+.rv{opacity:0;transform:translateY(30px) scale(.97);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+.cells b.flip{animation:flip .5s}
+@keyframes flip{from{transform:rotateX(90deg);opacity:.3}to{transform:none;opacity:1}}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+.bism{background:linear-gradient(90deg,var(--wine),var(--gold),var(--wine));background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+html,body{overflow-x:hidden;max-width:100%}
+#intro{min-height:100vh;min-height:100dvh}
+#inv{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}
+.inner{padding:clamp(18px,6vw,30px) clamp(12px,4vw,22px)}
+.bism{font-size:clamp(22px,7vw,32px)}
+.what{font-size:clamp(20px,6vw,28px)}
+.name{font-size:clamp(28px,9.5vw,42px);overflow-wrap:anywhere}
+.en{font-size:clamp(13px,3.8vw,18px);overflow-wrap:anywhere}
+.pill{font-size:clamp(13px,3.9vw,16px)}
+.verse{font-size:clamp(20px,6.4vw,28px)}
+.info{padding:clamp(12px,4vw,18px);gap:clamp(10px,3vw,16px)}
+.info b{font-size:clamp(18px,5.4vw,24px)}
+.info em,.info small{font-size:clamp(12px,3.6vw,15px)}
+.ico{width:clamp(44px,14vw,58px);height:clamp(44px,14vw,58px)}
+.cells b{font-size:clamp(20px,7vw,30px)}
+.cells span{font-size:clamp(11px,3.3vw,14px)}
+.row{flex-wrap:wrap}.row .btn{flex:1 1 140px}
+.bf{font-size:clamp(20px,6vw,28px)}
+.sign{font-size:clamp(36px,12vw,50px)}
+.cls{font-size:clamp(9px,2.8vw,12px)}
+@media (max-width:360px){.row{flex-direction:column;gap:0}.cells{gap:5px}.frame{border-radius:26px;padding:7px}.inner{border-radius:20px}.arch{width:86%}}
+@media (min-width:600px){#inv{max-width:560px}}
+@media (orientation:landscape) and (max-height:500px){#intro{padding:12px;gap:8px}.capi{font-size:38px}.script{font-size:34px}.env{width:min(50vw,280px)}.arch{width:40%}}
+</style>
+</head>
+<body>
+
+<section id="intro">
+  <div class="capi">🎓</div><div class="tag" id="t-tag"></div>
+  <p class="script">Save the Date</p>
+  <button class="env" id="env" aria-label="افتح الدعوة"><div class="flap"></div><div class="seal" id="t-mono"></div></button>
+  <button class="openbtn" id="openBtn">💌 انقر هنا لفتح الدعوة</button>
+</section>
+
+<main id="inv" class="hidden">
+  <div class="frame"><div class="inner">
+    <p class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+    <div class="arch" id="arch"></div>
+    <p class="lead">يسرني دعوتكم</p>
+    <p class="what" id="t-what"></p>
+    <h1 class="name" id="t-name"></h1>
+    <p class="en" id="t-en"></p>
+    <div class="pill" id="t-major"></div>
+
+    <div class="info"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div><div><small>التاريخ واليوم</small><b id="t-date"></b><em id="t-date2"></em></div></div>
+    <div class="info"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><small>الوقت</small><b id="t-time"></b><em id="t-time2"></em></div></div>
+    <div class="info" style="flex-wrap:wrap"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg></div><div><small>المكان</small><b id="t-place"></b><em id="t-addr"></em></div><a class="btn" id="mapBtn" target="_blank" rel="noopener">موقع المكان على خرائط Google</a></div>
+
+    <div class="count"><p>العد التنازلي للموعد</p>
+      <div class="cells"><div><b id="c-d">00</b><span>يوم</span></div><div><b id="c-h">00</b><span>ساعة</span></div><div><b id="c-m">00</b><span>دقيقة</span></div><div><b id="c-s">00</b><span>ثانية</span></div></div></div>
+
+    <div class="row"><a class="btn" id="waBtn" target="_blank" rel="noopener">مشاركة عبر واتساب</a><a class="btn alt" id="calBtn" target="_blank" rel="noopener">إضافة إلى التقويم</a></div>
+
+    <hr><p class="verse">﴿ رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ ﴾</p><p class="src">– سورة النمل</p>
+    <hr><p class="what" style="font-size:22px">حضوركم يسعدني ويزيد فرحتي ❤️</p>
+    <hr><p class="sign" id="t-sign"></p><div class="cls" id="t-cls"></div>
+  </div></div>
+</main>
+
+<script>
+// ✏️ عدّل البيانات هنا فقط
+var D = {
+  tag: "دعوة تخرج",
+  mono: "AB",
+  what: "لحضور حفل تخرجي",
+  name: "اسمك هنا",
+  en: "Your Name Here",
+  major: "التخصص • الكلية / الجامعة",
+  date: new Date("2026-11-20T09:00:00"),
+  dateText: "الجمعة 20 نوفمبر 2026", dateText2: "2026 / 11 / 20",
+  timeText: "الساعة 09:00 صباحاً", timeText2: "9:00 AM",
+  place: "اسم القاعة أو الكلية", addr: "المدينة - البلد",
+  mapQuery: "Tripoli, Libya",
+  photo: "",            // رابط صورتك (اتركه فارغاً لعرض الحرف)
+  sign: "Your Name", cls: "CLASS OF 2026",
+  title: "دعوة تخرج"
+};
+var $ = function(i){return document.getElementById(i)};
+$("t-tag").textContent=D.tag; $("t-mono").textContent=D.mono;
+$("t-what").textContent=D.what; $("t-name").textContent=D.name; $("t-en").textContent=D.en;
+$("t-major").textContent=D.major; $("t-date").textContent=D.dateText; $("t-date2").textContent=D.dateText2;
+$("t-time").textContent=D.timeText; $("t-time2").textContent=D.timeText2;
+$("t-place").textContent=D.place; $("t-addr").textContent=D.addr;
+$("t-sign").textContent=D.sign; $("t-cls").textContent=D.cls;
+$("arch").innerHTML = D.photo ? '<img alt="" src="'+D.photo+'">' : '<span>'+D.mono.charAt(0)+'</span>';
+$("mapBtn").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(D.mapQuery);
+function iso(d){return d.toISOString().replace(/[-:]/g,"").split(".")[0]+"Z"}
+var end=new Date(D.date.getTime()+7200000);
+$("calBtn").href="https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(D.title+" - "+D.name)+"&dates="+iso(D.date)+"/"+iso(end)+"&location="+encodeURIComponent(D.place+" "+D.addr);
+$("waBtn").href="https://wa.me/?text="+encodeURIComponent(D.title+" - "+D.name+"\n"+D.dateText+"\n"+D.place+"\n"+location.href);
+function pad(n){return String(n).padStart(2,"0")}
+function tick(){var s=Math.max(0,Math.floor((D.date-new Date())/1000));
+ $("c-d").textContent=pad(Math.floor(s/86400));$("c-h").textContent=pad(Math.floor(s%86400/3600));
+ $("c-m").textContent=pad(Math.floor(s%3600/60));var e=$("c-s");e.textContent=pad(s%60);e.classList.remove("flip");void e.offsetWidth;e.classList.add("flip")}
+tick(); setInterval(tick,1000);
+var RM=matchMedia("(prefers-reduced-motion:reduce)").matches,cv=document.createElement("canvas"),cx=cv.getContext("2d"),P=[],W,H,COL=["#6b1624","#c9a45c","#e8b4b8","#f6dfa4","#b98068"],amb=false;
+cv.id="fx";document.body.appendChild(cv);
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener("resize",rs);
+function burst(){if(RM)return;for(var i=0;i<130;i++)P.push({x:W/2,y:H*.45,vx:(Math.random()-.5)*15,vy:-Math.random()*15-3,g:.28,r:4+Math.random()*5,c:COL[i%5],a:0,va:(Math.random()-.5)*.3,t:Math.random()<.4})}
+function loop(){cx.clearRect(0,0,W,H);for(var i=P.length-1;i>=0;i--){var p=P[i];p.vy+=p.g;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;if(p.y>H+20){P.splice(i,1);continue}cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.fillStyle=p.c;if(p.t){cx.beginPath();cx.ellipse(0,0,p.r*1.3,p.r*.7,0,0,7);cx.fill()}else cx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6);cx.restore()}requestAnimationFrame(loop)}loop();
+setInterval(function(){if(amb&&!RM)P.push({x:Math.random()*W,y:-10,vx:Math.random()-.5,vy:.8+Math.random(),g:0,r:5+Math.random()*4,c:"#e8b4b8",a:0,va:.03,t:true})},500);
+function reveal(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});document.querySelectorAll(".arch,.what,.name,.pill,.info,.count,.row,.verse,.sign").forEach(function(el){el.classList.add("rv");io.observe(el)})}
+var pv="";var _t=tick;tick=function(){_t();};
+function open(){ burst(); $("env").classList.add("open");
+ setTimeout(function(){ $("intro").classList.add("hidden"); $("inv").classList.remove("hidden"); window.scrollTo(0,0);amb=true;reveal();burst();
+  for(var i=0;i<9;i++){var b=document.createElement("div");b.className="bf";b.innerHTML="<i>🦋</i>";var R=function(n){return Math.round((Math.random()-.5)*n/5)+"vw"},Rv=function(n){return Math.round((Math.random()-.5)*n/4)+"vh"};b.style.setProperty("--x1",R(300));b.style.setProperty("--y1",Rv(300));b.style.setProperty("--x2",R(400));b.style.setProperty("--y2",Rv(400));b.style.setProperty("--x3",R(300));b.style.setProperty("--y3",Rv(300));b.style.setProperty("--d",(12+Math.random()*10)+"s");b.style.left=(Math.random()*90)+"vw";b.style.top=(10+Math.random()*75)+"vh";b.style.animationDelay=(-Math.random()*12)+"s";document.body.appendChild(b)}
+ },850)}
+$("env").onclick=open; $("openBtn").onclick=open;
+</script>
+</body>
+</html>
