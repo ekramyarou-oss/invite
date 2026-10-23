@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>دعوة تخرج</title>
+<title>دعوة تخرج المهندسة إرم</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f5ece4;--card:#fff;--soft:#faf4ee;--ink:#3a1018;--wine:#6b1624;--wine2:#4d0f19;--gold:#c9a45c;--rose:#b98068;--line:#ecdcc8;--muted:#7a6a68;
@@ -105,6 +105,12 @@ html,body{overflow-x:hidden;max-width:100%}
 @media (max-width:360px){.row{flex-direction:column;gap:0}.cells{gap:5px}.frame{border-radius:26px;padding:7px}.inner{border-radius:20px}.arch{width:86%}}
 @media (min-width:600px){#inv{max-width:560px}}
 @media (orientation:landscape) and (max-height:500px){#intro{padding:12px;gap:8px}.capi{font-size:38px}.script{font-size:34px}.env{width:min(50vw,280px)}.arch{width:40%}}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:18px;border:4px solid #fff;box-shadow:0 8px 20px rgba(107,22,36,.2);cursor:zoom-in;transition:transform .3s}
+.gal img:nth-child(odd){transform:rotate(-2deg)}.gal img:nth-child(even){transform:rotate(2deg)}
+.gal img:hover{transform:scale(1.04) rotate(0)}
+#lb{position:fixed;inset:0;z-index:60;background:rgba(20,5,8,.9);display:flex;align-items:center;justify-content:center;cursor:zoom-out}
+#lb img{max-width:92vw;max-height:86vh;border-radius:14px;border:4px solid #fff}
 </style>
 </head>
 <body>
@@ -133,6 +139,7 @@ html,body{overflow-x:hidden;max-width:100%}
     <div class="count"><p>العد التنازلي للموعد</p>
       <div class="cells"><div><b id="c-d">00</b><span>يوم</span></div><div><b id="c-h">00</b><span>ساعة</span></div><div><b id="c-m">00</b><span>دقيقة</span></div><div><b id="c-s">00</b><span>ثانية</span></div></div></div>
 
+    <div id="galWrap" class="hidden"><div class="count"><p>لحظات من الرحلة 📸</p><div class="gal" id="gal"></div></div></div>
     <div class="row"><a class="btn" id="waBtn" target="_blank" rel="noopener">مشاركة عبر واتساب</a><a class="btn alt" id="calBtn" target="_blank" rel="noopener">إضافة إلى التقويم</a></div>
 
     <hr><p class="verse">﴿ رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ ﴾</p><p class="src">– سورة النمل</p>
@@ -141,24 +148,28 @@ html,body{overflow-x:hidden;max-width:100%}
   </div></div>
 </main>
 
+<div id="lb" class="hidden"><img alt=""></div>
 <script>
 // ✏️ عدّل البيانات هنا فقط
 var D = {
-  tag: "دعوة تخرج",
-  mono: "AB",
+  tag: "دعوة تخرج إرم",
+  mono: "EG",
   what: "لحضور حفل تخرجي",
-  name: "م.إرم الصادق قجرب",
-  en: "Eng.Eram Gagroub",
-  major: "هندسة مدنية• جامعة طرابلس",
+  name: "م. إرم الصادق قجروب",
+  en: "Eng. Eram Alsadeq Gajroub",
+  major: "قسم الهندسة المدنية • جامعة طرابلس",
   date: new Date("2026-11-20T09:00:00"),
-  dateText: "الجمعة 20 نوفمبر 2026", dateText2: "2026 / 11 / 20",
+  dateText: "الثلاثاء 27 إكتوبر 2026", dateText2: "2026 / 10 / 27",
   timeText: "الساعة 09:00 صباحاً", timeText2: "9:00 AM",
-  mapQuery: "Tripoli, Libya",
-  photo: "",            // رابط صورتك (اتركه فارغاً لعرض الحرف)
-  sign: "Eram Gagroub", cls: "CLASS OF 2026",
+  place: "جامعة طرابلس - كلية الهندسة", addr: "طرابلس - ليبيا",
+  mapQuery: "University of Tripoli, Libya",
+  photo: "photo.jpg",            // رابط صورتك (اتركه فارغاً لعرض الحرف)
+  sign: "Eram Gajroub", cls: "CLASS OF 2026",
   title: "دعوة تخرج"
 };
 var $ = function(i){return document.getElementById(i)};
+D.gallery=["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg"]; // أسماء صور المعرض (الموجود منها فقط يظهر)
+(function(){var g=$("gal");D.gallery.forEach(function(s){var im=new Image();im.alt="";im.loading="lazy";im.onload=function(){g.appendChild(im);$("galWrap").classList.remove("hidden")};im.onclick=function(){var l=$("lb");l.firstChild.src=s;l.classList.remove("hidden")};im.src=s});$("lb").onclick=function(){this.classList.add("hidden")}})();
 $("t-tag").textContent=D.tag; $("t-mono").textContent=D.mono;
 $("t-what").textContent=D.what; $("t-name").textContent=D.name; $("t-en").textContent=D.en;
 $("t-major").textContent=D.major; $("t-date").textContent=D.dateText; $("t-date2").textContent=D.dateText2;
